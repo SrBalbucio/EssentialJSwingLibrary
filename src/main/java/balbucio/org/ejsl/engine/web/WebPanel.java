@@ -16,6 +16,7 @@ public class WebPanel extends JPanel {
 
     public WebPanel(Document html){
         this.html = html;
+        this.setBackground(Color.WHITE);
     }
 
     @Override
@@ -46,7 +47,7 @@ public class WebPanel extends JPanel {
                     y = result[0].getY() + 10;
                 }
                 case "h5" -> {
-                    result[0] = webrender.renderH4(x, y, es.text());
+                    result[0] = webrender.renderH5(x, y, es.text());
                     y = result[0].getY() + 10;
                 }
                 case "img" -> {

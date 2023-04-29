@@ -1,9 +1,5 @@
 package balbucio.org.ejsl.engine;
 
-import balbucio.org.ejsl.utils.ImageUtils;
-import org.jsoup.nodes.Element;
-
-import javax.swing.text.html.HTML;
 import java.awt.*;
 
 public class EJSLGraphics {
@@ -62,7 +58,7 @@ public class EJSLGraphics {
         }
 
         public RenderResult renderH5(int x, int y, String text){
-            Font font = defaultGraphics.getFont().deriveFont(Font.PLAIN, 8);
+            Font font = defaultGraphics.getFont().deriveFont(Font.PLAIN, 10);
             Graphics2D graphics = (Graphics2D) defaultGraphics.create();
             graphics.setFont(font);
             graphics.drawString(text, x, y);
@@ -76,14 +72,17 @@ public class EJSLGraphics {
         }
 
         public RenderResult renderButton(int x, int y, String text){
-            Font font = defaultGraphics.getFont().deriveFont(Font.PLAIN, 8);
+            Font font = defaultGraphics.getFont().deriveFont(Font.PLAIN, 12);
             Graphics2D graphics = (Graphics2D) defaultGraphics.create();
             graphics.setFont(font);
+            graphics.setBackground(Color.WHITE);
             int height, width;
             width = graphics.getFontMetrics().stringWidth(text) + (2*5);
             height = graphics.getFontMetrics().getHeight() + (2*5);
-            graphics.drawRoundRect(x, y, width, height, 10, 10);
-            graphics.drawString(text,(width / 2) - graphics.getFontMetrics().stringWidth(text), height / 3 + graphics.getFontMetrics().getHeight());
+            graphics.setColor(Color.DARK_GRAY);
+            graphics.drawRoundRect(x, y, width, height, 7, 7);
+            graphics.setColor(Color.BLACK);
+            graphics.drawString(text, (width / 2 - (graphics.getFontMetrics().stringWidth(text) / 2))+x, (height / 2 + (graphics.getFontMetrics().getHeight() / 3))+y);
             return new RenderResult(x+width, y+height);
         }
     }

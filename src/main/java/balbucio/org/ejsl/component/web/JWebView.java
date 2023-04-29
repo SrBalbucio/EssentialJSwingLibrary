@@ -4,17 +4,14 @@ import balbucio.org.ejsl.engine.web.WebPanel;
 import org.jsoup.Jsoup;
 
 import javax.swing.*;
-import javax.swing.text.html.HTMLEditorKit;
 import java.awt.*;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class JWebView extends JPanel{
 
     private WebPanel panel;
     private JScrollPane scroll;
-    private HTMLEditorKit kit;
 
     public JWebView(String html){
         super(new BorderLayout());
