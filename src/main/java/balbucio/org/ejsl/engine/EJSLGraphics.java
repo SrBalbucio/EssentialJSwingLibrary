@@ -28,7 +28,7 @@ public class EJSLGraphics {
         }
 
         public RenderResult renderH1(int x, int y, String text){
-            Font font = defaultGraphics.getFont().deriveFont(Font.PLAIN, 24);
+            Font font = defaultGraphics.getFont().deriveFont(Font.BOLD, 24);
             Graphics2D graphics = (Graphics2D) defaultGraphics.create();
             graphics.setFont(font);
             graphics.drawString(text, x, y);
@@ -36,21 +36,21 @@ public class EJSLGraphics {
         }
 
         public RenderResult renderH2(int x, int y, String text){
-            Font font = defaultGraphics.getFont().deriveFont(Font.PLAIN, 20);
+            Font font = defaultGraphics.getFont().deriveFont(Font.BOLD, 20);
             Graphics2D graphics = (Graphics2D) defaultGraphics.create();
             graphics.setFont(font);
             graphics.drawString(text, x, y);
             return new RenderResult(x+graphics.getFontMetrics().stringWidth(text), y + font.getSize());
         }
         public RenderResult renderH3(int x, int y, String text){
-            Font font = defaultGraphics.getFont().deriveFont(Font.PLAIN, 16);
+            Font font = defaultGraphics.getFont().deriveFont(Font.BOLD, 16);
             Graphics2D graphics = (Graphics2D) defaultGraphics.create();
             graphics.setFont(font);
             graphics.drawString(text, x, y);
             return new RenderResult(x+graphics.getFontMetrics().stringWidth(text), y + font.getSize());
         }
         public RenderResult renderH4(int x, int y, String text){
-            Font font = defaultGraphics.getFont().deriveFont(Font.PLAIN, 12);
+            Font font = defaultGraphics.getFont().deriveFont(Font.BOLD, 12);
             Graphics2D graphics = (Graphics2D) defaultGraphics.create();
             graphics.setFont(font);
             graphics.drawString(text, x, y);
@@ -58,7 +58,15 @@ public class EJSLGraphics {
         }
 
         public RenderResult renderH5(int x, int y, String text){
-            Font font = defaultGraphics.getFont().deriveFont(Font.PLAIN, 10);
+            Font font = defaultGraphics.getFont().deriveFont(Font.BOLD, 10);
+            Graphics2D graphics = (Graphics2D) defaultGraphics.create();
+            graphics.setFont(font);
+            graphics.drawString(text, x, y);
+            return new RenderResult(x+graphics.getFontMetrics().stringWidth(text), y + font.getSize());
+        }
+
+        public RenderResult renderP(int x, int y, String text){
+            Font font = defaultGraphics.getFont().deriveFont(Font.PLAIN, 16);
             Graphics2D graphics = (Graphics2D) defaultGraphics.create();
             graphics.setFont(font);
             graphics.drawString(text, x, y);

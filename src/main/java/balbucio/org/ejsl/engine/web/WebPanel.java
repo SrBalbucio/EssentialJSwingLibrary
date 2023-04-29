@@ -57,6 +57,10 @@ public class WebPanel extends JPanel {
                 case "br" -> {
                     y = result[0].getY() + 10;
                 }
+                case "p" -> {
+                    result[0] = webrender.renderP(x, y, es.text());
+                    y = result[0].getY() + 10;
+                }
                 case "button" -> {
                     result[0] = webrender.renderButton(x, y, es.text());
                 }
