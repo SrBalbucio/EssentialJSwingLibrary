@@ -17,9 +17,22 @@ import java.io.InputStream;
 
 public class ImageUtils {
 
+    public static Dimension getProportion(int w, int h, Image img){
+        double scaleWidth = (double) w / img.getWidth(null);
+        double scaleHeight = (double) h / img.getHeight(null);
+
+        double scale = Math.min(scaleWidth, scaleHeight);
+
+        int scaledWidth = (int) (img.getWidth(null) * scale);
+        int scaledHeight = (int) (img.getHeight(null) * scale);
+        return new Dimension(scaledWidth, scaledHeight);
+    }
+
     public static BufferedImage resizeImage(BufferedImage image, int w, int h) {
         BufferedImage resizedImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics2D = resizedImage.createGraphics();
+        graphics2D.setBackground(new Color(0,0,0,0));
+        graphics2D.fillRect(0, 0, w, h);
         graphics2D.drawImage(image, 0, 0, w, h, null);
         graphics2D.dispose();
         return resizedImage;

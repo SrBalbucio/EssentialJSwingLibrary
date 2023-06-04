@@ -9,14 +9,15 @@ import java.awt.event.ComponentListener;
 
 public class JImagePanel extends JPanel {
 
+    private Image orginalImage;
     private Image image;
     private boolean blur;
     private boolean center;
     private boolean maxSize;
 
-    public JImagePanel(Image image){
-        this.image = image;
-        this.setPreferredSize(new Dimension(image.getWidth(null), image.getHeight(null)));
+    public JImagePanel(Image img){
+        this.orginalImage = img;
+        this.setPreferredSize(new Dimension(img.getWidth(null), img.getHeight(null)));
     }
 
     public JImagePanel(Image image, Color bg){
@@ -61,8 +62,10 @@ public class JImagePanel extends JPanel {
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setBackground(getBackground());
+        g2.setColor(getBackground());
         if(maxSize){
-            image = ImageUtils.resizeImage(image, this.getWidth(), this.getWidth());
+            Dimension dimension = ImageUtils.getProportion(this.getSize().width, this.getSize().height, orginalImage);
+            image = ImageUtils.resizeImage(orginalImage, dimension.width, dimension.height);
         }
         if(blur && !blurIsApplied){
             image = ImageUtils.addBlur(image);
