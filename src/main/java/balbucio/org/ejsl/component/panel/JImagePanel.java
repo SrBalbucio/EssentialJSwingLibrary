@@ -11,9 +11,9 @@ public class JImagePanel extends JPanel {
 
     private Image orginalImage;
     private Image image;
-    private boolean blur;
-    private boolean center;
-    private boolean maxSize;
+    private boolean blur = false;
+    private boolean center = false;
+    private boolean maxSize = false;
 
     public JImagePanel(Image img){
         this.orginalImage = img;
@@ -66,13 +66,15 @@ public class JImagePanel extends JPanel {
         if(maxSize){
             Dimension dimension = ImageUtils.getProportion(this.getSize().width, this.getSize().height, orginalImage);
             image = ImageUtils.resizeImage(orginalImage, dimension.width, dimension.height);
+        } else {
+            image = ImageUtils.resizeImage(orginalImage, this.getWidth(), getHeight());
         }
         if(blur && !blurIsApplied){
             image = ImageUtils.addBlur(image);
         }
         if (image != null) {
             if (!center) {
-                g2.drawImage(image, 0, 0, this);
+                g2.drawImage(image, this.getX(), this.getY(), this);
             } else {
                 g2.drawImage(image, (this.getWidth() / 2 - (image.getWidth(this) / 2)),
                         (this.getHeight() / 2 - (image.getHeight(this) / 2)), this);
