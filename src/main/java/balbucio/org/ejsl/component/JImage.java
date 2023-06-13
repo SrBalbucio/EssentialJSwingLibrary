@@ -1,13 +1,11 @@
-package balbucio.org.ejsl.component.panel;
+package balbucio.org.ejsl.component;
 
 import balbucio.org.ejsl.utils.ImageUtils;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 
-public class JImagePanel extends JPanel {
+public class JImage extends JComponent {
 
     private Image orginalImage;
     private Image image;
@@ -15,12 +13,12 @@ public class JImagePanel extends JPanel {
     private boolean center = false;
     private boolean maxSize = false;
 
-    public JImagePanel(Image img){
+    public JImage(Image img){
         this.orginalImage = img;
         this.setPreferredSize(new Dimension(img.getWidth(null), img.getHeight(null)));
     }
 
-    public JImagePanel(Image image, Color bg){
+    public JImage(Image image, Color bg){
         this(image);
         this.setBackground(bg);
     }
