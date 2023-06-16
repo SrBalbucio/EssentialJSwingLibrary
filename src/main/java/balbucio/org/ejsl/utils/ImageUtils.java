@@ -48,8 +48,8 @@ public class ImageUtils {
         return resizedImage;
     }
 
-    public static Image resizeImage(Image image, int w, int h){
-        return getImage(resizeImage(toBufferedImage(image), w, h));
+    public static Image resizeImage(Image image, int w, int h, Color color){
+        return getImage(resizeImage(toBufferedImage(image), w, h, color));
     }
 
     public static Image getImage(String URL){
