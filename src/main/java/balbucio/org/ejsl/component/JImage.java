@@ -64,9 +64,9 @@ public class JImage extends JComponent {
         g2.fillRect(0, 0, this.getWidth(), this.getHeight());
         if(maxSize){
             Dimension dimension = ImageUtils.getProportion(this.getSize().width, this.getSize().height, orginalImage);
-            image = ImageUtils.resizeImage(orginalImage, dimension.width, dimension.height);
+            image = ImageUtils.resizeImage(orginalImage, dimension.width, dimension.height, getBackground());
         } else {
-            image = ImageUtils.resizeImage(orginalImage, this.getWidth(), getHeight());
+            image = ImageUtils.resizeImage(orginalImage, this.getWidth(), getHeight(), getBackground());
         }
         if(blur && !blurIsApplied){
             image = ImageUtils.addBlur(image);
