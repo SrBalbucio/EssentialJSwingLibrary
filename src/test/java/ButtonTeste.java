@@ -1,3 +1,4 @@
+import balbucio.org.ejsl.EJSL;
 import balbucio.org.ejsl.component.EJSLButton;
 
 import javax.swing.*;
@@ -10,7 +11,8 @@ public class ButtonTeste {
         frame.setSize(640, 640);
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        frame.add(new EJSLButton("Option Variable", EJSLButton.Type.COLOR, Color.DARK_GRAY, Color.BLACK), gbc);
+        EJSLButton b = new EJSLButton("Option Variable");
+        frame.add(b, gbc);
         frame.setVisible(true);
     }
 }
