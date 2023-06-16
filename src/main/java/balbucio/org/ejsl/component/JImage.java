@@ -61,6 +61,7 @@ public class JImage extends JComponent {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setBackground(getBackground());
         g2.setColor(getBackground());
+        g2.fillRect(0, 0, this.getWidth(), this.getHeight());
         if(maxSize){
             Dimension dimension = ImageUtils.getProportion(this.getSize().width, this.getSize().height, orginalImage);
             image = ImageUtils.resizeImage(orginalImage, dimension.width, dimension.height);
