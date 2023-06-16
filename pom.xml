@@ -6,7 +6,7 @@
 
     <groupId>balbucio.org.ejsl</groupId>
     <artifactId>EssentialJSwingLibrary</artifactId>
-    <version>v0.0.7</version>
+    <version>v0.0.8</version>
 
     <properties>
         <maven.compiler.source>20</maven.compiler.source>

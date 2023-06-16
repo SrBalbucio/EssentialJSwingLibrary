@@ -41,7 +41,7 @@ public class ImageUtils {
     public static BufferedImage resizeImage(BufferedImage image, int w, int h, Color color) {
         BufferedImage resizedImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics2D = resizedImage.createGraphics();
-        graphics2D.setBackground(color);
+        graphics2D.setColor(color);
         graphics2D.fillRect(0, 0, w, h);
         graphics2D.drawImage(image, 0, 0, w, h, null);
         graphics2D.dispose();
