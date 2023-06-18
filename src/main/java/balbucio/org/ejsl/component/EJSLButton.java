@@ -127,6 +127,8 @@ public class EJSLButton extends JComponent implements MouseListener {
 
     public void setSelected(boolean selected) {
         this.selected = selected;
+        revalidate();
+        repaint();
     }
 
     public int getFontSize() {
@@ -135,6 +137,10 @@ public class EJSLButton extends JComponent implements MouseListener {
 
     public void setFontSize(int fontSize) {
         this.fontSize = fontSize;
+    }
+
+    public void addClickListener(ClickListener l){
+        clickListeners.add(l);
     }
 
     @Override
@@ -158,10 +164,10 @@ public class EJSLButton extends JComponent implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        clickListeners.forEach(l -> l.click(this));
         setSelected(!selected);
         revalidate();
         repaint();
+        clickListeners.forEach(l -> l.click(this));
     }
 
     @Override
