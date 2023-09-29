@@ -30,40 +30,40 @@ public class WebPanel extends JPanel {
 
         html.body().getAllElements().forEach(es -> {
             switch(es.tag().getName()){
-                case "h1" -> {
+                case "h1":
                     result[0] = webrender.renderH1(x, y, es.text());
                     y = result[0].getY() + 10;
-                }
-                case "h2" -> {
+                    break;
+                case "h2":
                     result[0] = webrender.renderH2(x, y, es.text());
                     y = result[0].getY() + 10;
-                }
-                case "h3" -> {
+                    break;
+                case "h3":
                     result[0] = webrender.renderH3(x, y, es.text());
                     y = result[0].getY() + 10;
-                }
-                case "h4" -> {
+                break;
+                case "h4":
                     result[0] = webrender.renderH4(x, y, es.text());
                     y = result[0].getY() + 10;
-                }
-                case "h5" -> {
+                    break;
+                case "h5":
                     result[0] = webrender.renderH5(x, y, es.text());
                     y = result[0].getY() + 10;
-                }
-                case "img" -> {
+                    break;
+                case "img":
                     result[0] = webrender.renderImg(x, y, ImageUtils.getImage(es.attr("src")));
                     y = result[0].getY() + 10;
-                }
-                case "br" -> {
+                    break;
+                case "br":
                     y = result[0].getY() + 10;
-                }
-                case "p" -> {
+                    break;
+                case "p":
                     result[0] = webrender.renderP(x, y, es.text());
                     y = result[0].getY() + 10;
-                }
-                case "button" -> {
+                    break;
+                case "button":
                     result[0] = webrender.renderButton(x, y, es.text());
-                }
+                    break;
             }
         });
     }
